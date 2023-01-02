@@ -8,6 +8,30 @@ class Solution(object):
             return 0
 
         l, r = 0, 1
+        index = {s[l]: l}
+
+        longest = 1
+        while r < len(s):
+            if s[r] in index:
+                l = max(index[s[r]], l)
+            index[s[r]] = r
+            current_length = r - l
+
+            r = max(r, l) + 1
+
+            longest = max(longest, current_length)
+
+        return longest
+
+    def lengthOfLongestSubstringSet(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        if len(s) == 0:
+            return 0
+
+        l, r = 0, 1
         exists = set()
 
         # handel s[0]
@@ -33,3 +57,4 @@ if __name__ == "__main__":
     print(Solution().lengthOfLongestSubstring(s="a"))
     print(Solution().lengthOfLongestSubstring(s="bbbbb"))
     print(Solution().lengthOfLongestSubstring(s="pwwkew"))
+    print(Solution().lengthOfLongestSubstring(s="tmmzuxt"))
