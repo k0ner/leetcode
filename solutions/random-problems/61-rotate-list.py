@@ -1,8 +1,4 @@
-class ListNode(object):
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
-
+from solutions.utils import *
 
 class Solution(object):
     def rotateRight(self, head, k):
@@ -38,13 +34,6 @@ class Solution(object):
         tail.next = old_head
 
         return head
-
-
-def printList(l):
-    while l:
-        print(l.val, end = "->")
-        l = l.next
-    print()
 
 if __name__ == '__main__':
     printList(Solution().rotateRight(head=ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5))))), k=2))
